@@ -18,8 +18,8 @@ console.log("The current hour is : " + currentHour);
 //need to add code to add variable  to use to compare id with current hour
 
 $(".time-block").each(function () {
-  var blockIdAssign = parseInt
-
+  var blockIdAssign = parseInt($(this).attr("id").split("-")[1])
+  console.log(blockIdAssign);
   //use if/else to assign id based on current time and remove false ids
   if (blockIdAssign < currentHour) {
     $(this).addclass("past");
