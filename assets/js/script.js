@@ -11,14 +11,17 @@ setInterval(function () {
   getCurrentDateTime()
 }, 1000);
 
+var currentHour = dayjs().format("HH");
+console.log("The current hour is : " + currentHour);
 
 
+//need to add code to add variable  to use to compare id with current hour
 
 $(".time-block").each(function () {
-  var blockIdAssign = 
+  var blockIdAssign = parseInt
 
   //use if/else to assign id based on current time and remove false ids
-  if (blockIdAssign < ) {
+  if (blockIdAssign < currentHour) {
     $(this).addclass("past");
     $(this).removeclass("present");
     $(this).removeclass("future");
