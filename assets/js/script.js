@@ -14,7 +14,16 @@ setInterval(function () {
 
 
 
-$(function () {
+$(".time-block").each(function () {
+  var blockIdAssign = 
+
+  //use if/else to assign id based on current time and remove false ids
+  if (blockIdAssign < ) {
+    $(this).addclass("past");
+    $(this).removeclass("present");
+    $(this).removeclass("future");
+  }
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -30,9 +39,15 @@ $(function () {
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
+  // attribute of each time-block be used to do this? Started
   //
-  // TODO: Add code to display the current date in the header of the page.
+  // TODO: Add code to display the current date in the header of the page. Done
+});
+
+$(".saveBtn").on("click", function () {
+  console.log(this);
+  var inputText = $(this).siblings(".description").val();
+  localStorage.setItem(inputText);
 });
 
 $("#hour-9 .description").val(localStorage.getItem("hour-9"));
