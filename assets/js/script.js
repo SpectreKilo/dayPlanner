@@ -4,7 +4,7 @@
 
 // Function to get current date and Time
 function getCurrentDateTime() {
-var currentDateTime = dayjs().format("MMMM DD, YYYY h:m:ss");
+var currentDateTime = dayjs().format("MMMM DD, YYYY hh:mm:ss");
 $("#currentDay").text(currentDateTime);  
 }
 setInterval(function () {
