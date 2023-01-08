@@ -9,7 +9,7 @@ $("#currentDay").text(currentDateTime);
 }
 setInterval(function () {
   getCurrentDateTime()
-}, 1000)
+}, 1000);
 
 
 
