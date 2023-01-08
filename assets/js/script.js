@@ -27,7 +27,8 @@ $(".time-block").each(function () {
     $(this).removeClass("present");
     $(this).removeClass("future");
   } else
-  if (blockIdAssign === currentHour) {
+  //triple equal sign doesn't work but double does
+  if (blockIdAssign == currentHour) {
     $(this).addClass("present");
     $(this).removeClass("past");
     $(this).removeClass("future");
