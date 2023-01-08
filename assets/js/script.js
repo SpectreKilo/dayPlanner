@@ -16,16 +16,28 @@ console.log("The current hour is : " + currentHour);
 
 
 //need to add code to add variable  to use to compare id with current hour
-
+function checkCurrentTimeBlock(){
 $(".time-block").each(function () {
+  //used parseInt to get the ID and used split to split the id and get the number
   var blockIdAssign = parseInt($(this).attr("id").split("-")[1])
-  console.log(blockIdAssign);
+  console.log("The time block is " + blockIdAssign,"current hour is " + currentHour);
   //use if/else to assign id based on current time and remove false ids
   if (blockIdAssign < currentHour) {
-    $(this).addclass("past");
-    $(this).removeclass("present");
-    $(this).removeclass("future");
+    $(this).addClass("past");
+    $(this).removeClass("present");
+    $(this).removeClass("future");
+  } else
+  if (blockIdAssign === currentHour) {
+    $(this).addClass("present");
+    $(this).removeClass("past");
+    $(this).removeClass("future");
+  } else {
+    $(this).addClass("future");
+    $(this).removeClass("past");
+    $(this).removeClass("present");
   }
+})
+}
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -45,12 +57,13 @@ $(".time-block").each(function () {
   // attribute of each time-block be used to do this? Started
   //
   // TODO: Add code to display the current date in the header of the page. Done
-});
 
+checkCurrentTimeBlock();
 $(".saveBtn").on("click", function () {
   console.log(this);
   var inputText = $(this).siblings(".description").val();
-  localStorage.setItem(inputText);
+  var inputTime = $(this).parent().attr("id");
+  localStorage.setItem(inputTime, inputText);
 });
 
 $("#hour-9 .description").val(localStorage.getItem("hour-9"));
